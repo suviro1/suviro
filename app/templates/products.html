@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/products.css">
+{% endblock %}
+{% block content %}
+  
+<section class="section">
+<div class="banner">
+  <div class="banner-image">
+    <img src="https://media.istockphoto.com/id/1186902469/photo/quantum-computing-concept-abstract-glowing-electronic-circuit.jpg?s=612x612&w=0&k=20&c=54FEEQVF2Zsx0lHLtCESSOHZls25sAc7FIeDrXuVqao=" alt="Banner Image">
+  </div>
+  <div class="banner-text">
+    {% for n in page_obj %}
+    {% if forloop.first %}
+      <h1 style="color:white;">{{n.category}}</h1>
+    {% endif %}
+  {% endfor %}
+
+  </div>
+</div>
+
+  <nav class="navbar">
+  <ul class="navbar-nav">
+    {% for n in nav %}
+
+    <li class="nav-item">
+      <a href="/products/{{n.id}}" class="nav-link ">{{n.product_type}}</a>
+    </li>
+    {% endfor %}
+
+  </ul>
+</nav>
+
+  <div class="product-container">
+    {% for n in page_obj %}
+    <a href="{% url 'productdetails' n.id %} ">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{n.product_img1.url}}" alt="Product Name">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">{{n.title}}</h3>
+          <p class="product-description">{{n.short_description}}</p>
+          <div class="product-tags">
+            <span class="tag">{{n.tags}}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- create pagination links -->
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; prev</a>
+      {% endif %}
+
+      <span class="current-page">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+
+      
+{% endblock %}

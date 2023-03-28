@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="form-container">
+    <h2 class="section-title">Contact Us</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  {% if messages %}
+    {% for message in messages %}
+        <div style="display:flex;justify-content:center;align-item:center padding-top:10px ">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+</section>
+{% endblock %}

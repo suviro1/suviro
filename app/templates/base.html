@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+	
+    {% block css %} {% endblock %}
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js"></script>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+				<iconify-icon icon="ic:baseline-5k" width="30" height="30"></iconify-icon>
+            </a>
+    
+            <div class="nav__menu" id="nav-menu" style="color:white;">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/" class="nav__link active-link ">Home</a>
+                    </li>
+					<li class="nav__item">
+						<a href="/" class="nav__link  active-link">Products</a>
+						<div class="dropdown">
+							<div id="company-list">
+								<!-- This will be populated dynamically with company names -->
+							  </div>
+						  
+						</div>
+					</li>
+                    <li class="nav__item">
+                        <a href="/usecase/food" class="nav__link  active-link">UseCase</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/about" class="nav__link  active-link">About</a>
+                    </li>
+					<li class="nav__item">
+                        <a href="/contact" class="nav__link  active-link">contact</a>
+                    </li>
+                </ul>
+    
+                <div class="nav__close" id="nav-close">
+                    <iconify-icon icon="ri:function-line"  style="color: black;"></iconify-icon>
+                </div>
+            </div>
+    
+            <div class="nav__toggle" id="nav-toggle">
+                <iconify-icon icon="ri:function-fill"  style="color: black;"></iconify-icon>
+
+            </div>
+        </nav>
+    </header>
+    {% block content %} {% endblock %}
+
+<footer class="footer section">
+	<div class="footer__container container grid">
+		<a href="#" class="footer__logo">
+			<iconify-icon icon="ic:baseline-5k" width="30" height="30"></iconify-icon>
+	
+		</a>
+
+		<div class="footer__content">
+			<h3 class="footer__title">Products</h3>
+
+			<ul class="footer__links">
+				<li>
+					<a href="/" class="footer__link">Home</a>
+				</li>
+				<li>
+					<a href="/products/network"" class="footer__link">Products</a>
+				</li>
+				<li>
+					<a href="/usecase/food" class="footer__link">Usecase</a>
+				</li>
+				<li>
+					<a href="/about" class="footer__link">About</a>
+				</li>
+				<li>
+					<a href="/contact" class="footer__link">Contact</a>
+				</li>
+			</ul>
+		</div>
+
+
+		
+
+		<div class="footer__content " style="padding-left: 25px;">
+		
+
+			<div class="footer__social">
+				<a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+					<iconify-icon icon="mdi:youtube" style="color: white;"></iconify-icon>
+				</a>
+				<a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+					<iconify-icon icon="mdi:instagram" style="color: white;"></iconify-icon>
+				</a>
+				<a href="https://twitter.com/" target="_blank" class="footer__social-link">
+					<iconify-icon icon="mdi:twitter" style="color: white;"></iconify-icon>
+				</a>
+			</div>
+		</div>
+	</div>
+
+</footer>
+
+<a href="#" class="scrollup" id="scroll-up">
+	<iconify-icon icon="material-symbols:keyboard-double-arrow-up" style="color: white;"></iconify-icon>
+</a>
+
+<!--=============== SCROLL REVEAL ===============-->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="../static/js/base.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $.ajax({
+    url: "/companys/",
+    type: "GET",
+    dataType: "json",
+    success: function(response) {
+      var companies = response.comp;
+      var companyList = $("#company-list");
+      for (var i = 0; i < companies.length; i++) {
+        var company = companies[i];
+        companyList.append('<a class="dropdown-item" href="/productscategory/' + company.id + '">' + company.name + '</a>');
+
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

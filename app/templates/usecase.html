@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block css %} 
+<link rel="stylesheet" href="../static/css/usecase.css">
+{% endblock %}
+
+{% block content %} 
+
+
+<section class="section">
+<div class="banner">
+  <div class="banner-image">
+    <img src="https://media.istockphoto.com/id/1186902469/photo/quantum-computing-concept-abstract-glowing-electronic-circuit.jpg?s=612x612&w=0&k=20&c=54FEEQVF2Zsx0lHLtCESSOHZls25sAc7FIeDrXuVqao=" alt="Banner Image">
+  </div>
+  <div class="banner-text">
+    {% for n in page_obj %}
+    {% if forloop.first %}
+      <h1 style="color:white;">{{n.category}}</h1>
+    {% endif %}
+  {% endfor %}
+  </div>
+</div>
+
+  <nav class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="/usecase/food" class="nav-link ">Food</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/pharmaceutical_Bio" class="nav-link">Pharmaceutical-Bio</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/precision_machine" class="nav-link">Precision-machine</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/electronics_industry" class="nav-link">Electronics-industry</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/facility_management" class="nav-link">Facility-management</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/water_treatment" class="nav-link">Water-treatment</a>
+    </li>
+    <li class="nav-item">
+      <a href="/usecase/smart_Farm" class="nav-link">Smart-Farm</a>
+    </li>
+        <li class="nav-item">
+      <a href="/usecase/oem" class="nav-link">Oem</a>
+    </li>
+
+  </ul>
+</nav>
+
+<div style="display:flex;justify-content:center;align-items: center; padding:40px">
+  <div style="text-align:center;">
+    {% for u in page_obj  %}
+      <img src="{{u.image.url}}" alt="Product Name" style="max-width:100%; height:auto; margin-bottom:1rem;">
+      <h1 style="text-align:center;"> {{u.title}} </h1>
+      <p> {{u.description}} </p>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<div class="pagination" style="display:flex;justify-content:center">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; prev</a>
+      {% endif %}
+
+      <span class="current-page">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
+</section>
+{% endblock %}

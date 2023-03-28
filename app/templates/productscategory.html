@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %} 
+<link rel="stylesheet" type="text/css" href="{% static 'css/productscategory.css' %}">
+{% endblock %}
+{% block content %}
+<section class="section">
+
+<div class="box">
+
+    {% for c in pc %}
+    <a href="/products/{{c.id}}">{{c.product_type}}</a>
+    {% endfor %}
+</div>
+</section>
+{% endblock %}

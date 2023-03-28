@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet"productdetails href="../static/css/productdetails.css">
+{% endblock %}
+{% block content %}
+
+
+<section class="sec">
+
+  <div class = "card-wrapper">
+    <div class = "card">
+      <!-- card left -->
+      <div class = "product-imgs">
+        <div class = "img-display">
+          <div class = "img-showcase">
+            <img src = "{{product.product_img1.url}}" alt = "shoe image">
+            <img src = "{{product.product_img2.url}}" alt = "shoe image">
+
+            <img src = "{{product.product_img3.url}}" alt = "shoe image">
+
+            <img src = "{{product.product_img4.url}}" alt = "shoe image">
+
+    
+          </div>
+        </div>
+        <div class = "img-select">
+          <div class = "img-item">
+            <a href = "#" data-id = "1">
+              <img src = "{{product.product_img1.url}}" alt = "shoe image">
+            
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "2">
+              <img src = "{{product.product_img2.url}}" alt = "shoe image">
+
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "3">
+              <img src = "{{product.product_img3.url}}" alt = "shoe image">
+
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "4">
+              <img src = "{{product.product_img4.url}}" alt = "shoe image">
+
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- card right -->
+      <div class = "product-content">
+        <h2 class = "product-title">{{product.title}}</h2>
+        <a href = "#" class = "product-link">{{product.tags}}</a>
+        <div class = "product-rating">
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star-half-alt"></i>
+        </div>
+  
+     
+        <div class = "product-detail">
+          <h2>about this item: </h2>
+          <p>{{product.short_description}}</p>
+          <p>{{product.description}}</p>
+        </div>
+  
+        <div class = "purchase-info">
+          <button type = "button" class = "btn" onclick="location.href='/contact'">contact</button>
+          <button  type = "button" class = "btn" onclick="window.location.href='https://drive.google.com/drive/folders/1lwdSSr2EQbT8JjHZviEbelY_H5TQnGvc'">get manuals</button>
+
+          
+  
+     
+      </div>
+    </div>
+  </div>
+</section>
+<section class="moredetails" style="  display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;">
+  <h1 class="moredetails-title" >more details</h1>
+  {{product.moredetails|safe}}
+</section>
+<script src="../static/js/productdetails.js"></script>
+      
+{% endblock %}
