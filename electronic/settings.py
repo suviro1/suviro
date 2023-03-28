@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ook2s17z)5!9=sh6(u3wj%4!o54&3)3-)8a!34y4**!o5k8wwm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['suviro.pythonanywhere.com']
 
 
 # Application definition
@@ -140,8 +140,8 @@ import cloudinary.uploader
 import cloudinary.api
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-cloudinary.config( 
-  cloud_name = config('CLOUD_NAME'), 
+cloudinary.config(
+  cloud_name = config('CLOUD_NAME'),
   api_key = config('API_KEY'),
   api_secret = config('API_SECRET')
 )
