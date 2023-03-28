@@ -13,8 +13,10 @@
   </div>
 </div>
   <div class="about-container">
-    <h2 class="section-title">Suvara</h2>
-    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor velit eget enim malesuada, a lacinia magna tempus. Aliquam aliquet risus id risus elementum, vel facilisis urna dignissim. Praesent ac risus ac augue vehicula rhoncus sed quis mauris.</p>
+    {% for a in about %}
+    <h2 class="section-title" style="text-transform: uppercase;">{{a.title}}</h2>
+    <p class="section-description"> {{a.description}}</p>
+   {% endfor %}
     <h2 class="section-title">Find Us</h2>
 
     <div class="map-container">
