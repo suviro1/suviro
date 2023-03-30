@@ -45,10 +45,11 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=200)
     short_description = models.TextField(max_length=500)
-    
+
     description = models.TextField()
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
-    
+    manuals = models.URLField()
+
     tags = models.CharField(max_length=50)
     product_img1 = CloudinaryField('image')
     product_img2 = CloudinaryField('image')
@@ -65,3 +66,8 @@ class Contact(models.Model):
     phone = models.BigIntegerField()
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class About(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()

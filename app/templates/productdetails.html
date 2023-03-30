@@ -21,14 +21,14 @@
 
             <img src = "{{product.product_img4.url}}" alt = "shoe image">
 
-    
+
           </div>
         </div>
         <div class = "img-select">
           <div class = "img-item">
             <a href = "#" data-id = "1">
               <img src = "{{product.product_img1.url}}" alt = "shoe image">
-            
+
             </a>
           </div>
           <div class = "img-item">
@@ -62,21 +62,21 @@
           <i class = "fas fa-star"></i>
           <i class = "fas fa-star-half-alt"></i>
         </div>
-  
-     
+
+
         <div class = "product-detail">
           <h2>about this item: </h2>
           <p>{{product.short_description}}</p>
           <p>{{product.description}}</p>
         </div>
-  
+
         <div class = "purchase-info">
           <button type = "button" class = "btn" onclick="location.href='/contact'">contact</button>
-          <button  type = "button" class = "btn" onclick="window.location.href='https://drive.google.com/drive/folders/1lwdSSr2EQbT8JjHZviEbelY_H5TQnGvc'">get manuals</button>
+<button type="button" class="btn" onclick="window.location.href='https://drive.google.com/drive/folders/1lwdSSr2EQbT8JjHZviEbelY_H5TQnGvc';">get manuals</button>
 
-          
-  
-     
+
+
+
       </div>
     </div>
   </div>
@@ -84,10 +84,10 @@
 <section class="moredetails" style="  display: flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;">
+flex-direction: column; padding:30px;">
   <h1 class="moredetails-title" >more details</h1>
   {{product.moredetails|safe}}
 </section>
 <script src="../static/js/productdetails.js"></script>
-      
+
 {% endblock %}

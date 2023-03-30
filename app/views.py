@@ -53,8 +53,10 @@ def Companys(request):
     comp = Company.objects.all().values('id','name')
     return JsonResponse({'comp': list(comp)})
 
-def About(request):
-    return render(request , 'about.html')
+def Abouts(request):
+    about = About.objects.all()
+    print(about)
+    return render(request , 'about.html',{'about':about})
 
 def Productdetails(request,pk):
 

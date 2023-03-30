@@ -4,21 +4,8 @@
 <link rel="stylesheet" href="../static/css/products.css">
 {% endblock %}
 {% block content %}
-  
-<section class="section">
-<div class="banner">
-  <div class="banner-image">
-    <img src="https://media.istockphoto.com/id/1186902469/photo/quantum-computing-concept-abstract-glowing-electronic-circuit.jpg?s=612x612&w=0&k=20&c=54FEEQVF2Zsx0lHLtCESSOHZls25sAc7FIeDrXuVqao=" alt="Banner Image">
-  </div>
-  <div class="banner-text">
-    {% for n in page_obj %}
-    {% if forloop.first %}
-      <h1 style="color:white;">{{n.category}}</h1>
-    {% endif %}
-  {% endfor %}
 
-  </div>
-</div>
+<section class="section">
 
   <nav class="navbar">
   <ul class="navbar-nav">
@@ -71,5 +58,5 @@
   </span>
 </div>
 
-      
+
 {% endblock %}

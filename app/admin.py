@@ -15,6 +15,10 @@ admin.site.unregister(Group)
 class CompanyModelAdmin(admin.ModelAdmin):
 	list_display = ['name']
 
+@admin.register(About)
+class AboutModelAdmin(admin.ModelAdmin):
+	list_display = ['title']
+
 
 @admin.register(ProductCategory)
 class ProductCategoryModelAdmin(admin.ModelAdmin):
