@@ -20,11 +20,10 @@ def Usecase(request, pk):
 
     return render(request, 'usecase.html', {'page_obj': page_obj})
 
-from django.contrib import messages
-
 def Products(request, pk):
     # Get all ProductCategory objects for the given company
     pc = ProductCategory.objects.filter(company=pk)
+    print(pc)
 
     # If there are no categories, send a message to the user
     if not pc:
@@ -34,8 +33,8 @@ def Products(request, pk):
     # Randomly select one category
     random_category = random.choice(pc)
 
-    # Get all Product objects that belong to the random category
-    products = Product.objects.filter(category=random_category)
+    # Get all Product objects that belong to the random category, ordered by ID
+    products = Product.objects.filter(category=random_category).order_by('id')
 
     # Get the navigation links to other categories in the same company
     nav = ProductCategory.objects.filter(company__in=[p.category.company for p in products])
