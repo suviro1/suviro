@@ -13,7 +13,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.4/iconify-icon.min.js"></script>
 </head>
 <body>
-     <header class="header" id="header" style="padding-top: 10px;">
+     <header  id="header" style="padding-top: 10px;">
         <nav class="nav container">
             <a href="#" class="nav__logo">
 				<img src="https://res.cloudinary.com/dbcbjbckk/image/upload/v1680165256/suviro_tsbbdq.png" alt="" srcset="" style="height: 100%; max-width: 100px;">
@@ -54,15 +54,13 @@
 
             </div>
         </nav>
+          {% block content %} {% endblock %}
     </header>
-    {% block content %} {% endblock %}
+
 
 <footer class="footer section">
 	<div class="footer__container container grid">
-		<a href="#" class="footer__logo">
-			<iconify-icon icon="ic:baseline-5k" width="30" height="30"></iconify-icon>
 
-		</a>
 
 		<div class="footer__content">
 			<h3 class="footer__title">Products</h3>
@@ -71,9 +69,7 @@
 				<li>
 					<a href="/" class="footer__link">Home</a>
 				</li>
-				<li>
-					<a href="/products/network"" class="footer__link">Products</a>
-				</li>
+
 				<li>
 					<a href="/usecase/food" class="footer__link">Usecase</a>
 				</li>

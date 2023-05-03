@@ -14,12 +14,11 @@
       <div class = "product-imgs">
         <div class = "img-display">
           <div class = "img-showcase">
-            <img src = "{{product.product_img1.url}}" alt = "shoe image">
-            <img src = "{{product.product_img2.url}}" alt = "shoe image">
+            <img src = "{{product.product_img1.url}}" >
 
-            <img src = "{{product.product_img3.url}}" alt = "shoe image">
-
-            <img src = "{{product.product_img4.url}}" alt = "shoe image">
+            <img src = "{{product.product_img3.url}}" >
+            <img src = "{{product.product_img4.url}}" >
+            <img src = "{{product.product_img2.url}}" >
 
 
           </div>
@@ -27,25 +26,25 @@
         <div class = "img-select">
           <div class = "img-item">
             <a href = "#" data-id = "1">
-              <img src = "{{product.product_img1.url}}" alt = "shoe image">
+              <img src = "{{product.product_img1.url}}">
 
             </a>
           </div>
           <div class = "img-item">
             <a href = "#" data-id = "2">
-              <img src = "{{product.product_img2.url}}" alt = "shoe image">
+              <img src = "{{product.product_img2.url}}">
 
             </a>
           </div>
           <div class = "img-item">
             <a href = "#" data-id = "3">
-              <img src = "{{product.product_img3.url}}" alt = "shoe image">
+              <img src = "{{product.product_img3.url}}" >
 
             </a>
           </div>
           <div class = "img-item">
             <a href = "#" data-id = "4">
-              <img src = "{{product.product_img4.url}}" alt = "shoe image">
+              <img src = "{{product.product_img4.url}}">
 
             </a>
           </div>
@@ -67,12 +66,12 @@
         <div class = "product-detail">
           <h2>about this item: </h2>
           <p>{{product.short_description}}</p>
-          <p>{{product.description}}</p>
+          <p style=" max-height: 500px;  overflow-y: auto;">{{product.description}}</p>
         </div>
 
         <div class = "purchase-info">
           <button type = "button" class = "btn" onclick="location.href='/contact'">contact</button>
-<button type="button" class="btn" onclick="window.location.href='https://drive.google.com/drive/folders/1lwdSSr2EQbT8JjHZviEbelY_H5TQnGvc';">get manuals</button>
+<button type="button" class="btn" onclick="window.location.href='{{product.manuals}}'">get manuals</button>
 
 
 
