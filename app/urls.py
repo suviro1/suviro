@@ -8,7 +8,6 @@ urlpatterns = [
     path('productdetails/<int:pk>',views.Productdetails,name="productdetails"),
     path('contact',views.Contact,name='contact'),
     path('companys/', views.Companys, name='companys'),
-    path('productscategory/<int:pk>', views.productscategory, name='productscategory'),
 
     
 

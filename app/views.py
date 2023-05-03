@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 from .form import ContactForm
 from django.contrib import messages
+import random
 
 def Home(request):
     return render(request, 'home.html')
@@ -19,12 +20,25 @@ def Usecase(request, pk):
 
     return render(request, 'usecase.html', {'page_obj': page_obj})
 
-def Products(request,pk):
-    products  = Product.objects.filter(category=pk)
+from django.contrib import messages
+
+def Products(request, pk):
+    # Get all ProductCategory objects for the given company
+    pc = ProductCategory.objects.filter(company=pk)
+
+    # If there are no categories, send a message to the user
+    if not pc:
+        messages.warning(request, "There are no products available yet.")
+        return redirect('home')
+
+    # Randomly select one category
+    random_category = random.choice(pc)
+
+    # Get all Product objects that belong to the random category
+    products = Product.objects.filter(category=random_category)
+
+    # Get the navigation links to other categories in the same company
     nav = ProductCategory.objects.filter(company__in=[p.category.company for p in products])
-    
-
-
 
     items_per_page = 10
     paginator = Paginator(products, items_per_page)
@@ -37,9 +51,10 @@ def Products(request,pk):
 
     context = {
         'page_obj': page_obj,
-        'nav':nav
+        'nav': nav
     }
     return render(request, 'products.html', context)
+
 
 
 
